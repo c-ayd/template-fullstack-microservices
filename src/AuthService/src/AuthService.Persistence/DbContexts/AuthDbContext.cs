@@ -1,3 +1,4 @@
+using System.Reflection;
 using AuthService.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,11 @@ namespace AuthService.Persistence.DbContexts
 
         public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
