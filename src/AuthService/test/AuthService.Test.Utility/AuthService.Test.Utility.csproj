@@ -25,4 +25,8 @@
     <ProjectReference Include="..\..\src\AuthService.Api\AuthService.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.Test.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
