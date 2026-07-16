@@ -26,6 +26,7 @@ namespace AuthService.Persistence.DbContexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.AddInterceptors([
+                new UpdateableInterceptor(),
                 new SoftDeleteInterceptor()
             ]);
         }
