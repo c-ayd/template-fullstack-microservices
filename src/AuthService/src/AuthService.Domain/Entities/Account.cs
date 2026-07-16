@@ -17,17 +17,8 @@ namespace AuthService.Domain.Entities
         public bool IsDeleted { get; set; }
         public DateTime? DeletedDate { get; set; }
 
-        public void SoftDelete()
-        {
-            Email = null;
-            IsEmailVerified = false;
-            NewEmail = null;
-            PasswordHashed = null;
-            FailedLoginAttempts = 0;
-            IsLocked = false;
-            UnlockDate = null;
-            UpdatedDate = null;
-        }
+        // Relationships
+        public ICollection<Login> Logins { get; set; } = new List<Login>();
 
         // Reserved for EF Core
         private Account() : base()
@@ -41,6 +32,18 @@ namespace AuthService.Domain.Entities
         {
             Email = email;
             PasswordHashed = passwordHashed;
+        }
+
+        public void SoftDelete()
+        {
+            Email = null;
+            IsEmailVerified = false;
+            NewEmail = null;
+            PasswordHashed = null;
+            FailedLoginAttempts = 0;
+            IsLocked = false;
+            UnlockDate = null;
+            UpdatedDate = null;
         }
     }
 }
