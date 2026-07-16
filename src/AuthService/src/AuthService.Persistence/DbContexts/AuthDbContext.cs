@@ -1,5 +1,6 @@
 using System.Reflection;
 using AuthService.Domain.Entities;
+using AuthService.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthService.Persistence.DbContexts
@@ -18,6 +19,13 @@ namespace AuthService.Persistence.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.AddInterceptors([
+                new SoftDeleteInterceptor()
+            ]);
         }
     }
 }
