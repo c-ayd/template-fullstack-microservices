@@ -1,5 +1,6 @@
 using System.Reflection;
 using AuthService.Domain.Entities;
+using AuthService.Persistence.Filters;
 using AuthService.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,7 @@ namespace AuthService.Persistence.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplySoftDeleteFilter();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
