@@ -9,4 +9,7 @@
   <Folder Name="/test/">
     <Project Path="test/AuthService.Test.Utility/AuthService.Test.Utility.csproj" />
   </Folder>
+  <Folder Name="/test/unit/">
+    <Project Path="test/unit/AuthService.Test.Unit.Domain/AuthService.Test.Unit.Domain.csproj" />
+  </Folder>
 </Solution>

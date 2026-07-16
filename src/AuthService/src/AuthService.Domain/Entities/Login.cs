@@ -1,0 +1,42 @@
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
+using System.Net;
+using AuthService.Domain.SeedWork;
+
+namespace AuthService.Domain.Entities
+{
+    public class Login : EntityBase<Guid>, IUpdateable
+    {
+        public string RefreshTokenHashed { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public IPAddress? IpAddress { get; set; }
+        public string? DeviceInfo { get; set; }
+
+        public DateTime? UpdatedDate { get; set; }
+
+        // Relationships
+        public Guid AccountId { get; set; }
+        public Account Account { get; set; }
+
+        // Reserved for EF Core
+        private Login() : base()
+        {
+        }
+
+        public Login(
+            Guid accountId,
+            string refreshTokenHashed,
+            DateTime expirationDate,
+            IPAddress? ipAddress = null,
+            string? deviceInfo = null)
+            : base(Guid.CreateVersion7())
+        {
+            AccountId = accountId;
+
+            RefreshTokenHashed = refreshTokenHashed;
+            ExpirationDate = expirationDate;
+            IpAddress = ipAddress;
+            DeviceInfo = deviceInfo;
+        }
+    }
+}
