@@ -19,6 +19,7 @@ namespace AuthService.Domain.Entities
 
         // Relationships
         public ICollection<Login> Logins { get; set; } = new List<Login>();
+        public ICollection<Token> Tokens { get; set; } = new List<Token>();
 
         // Reserved for EF Core
         private Account() : base()
