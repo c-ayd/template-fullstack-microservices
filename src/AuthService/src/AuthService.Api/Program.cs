@@ -1,4 +1,7 @@
+using System.Reflection;
 using AuthService.Persistence;
+using AuthService.Persistence.SeedData;
+using Cayd.AspNetCore.Settings.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddPersistenceServices(builder.Configuration);
 //~ End
 
+builder.Services.AddSettingsFromAssemblies(builder.Configuration,
+    Assembly.GetAssembly(typeof(AuthService.Persistence.ServiceRegistration))!
+);
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -16,5 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Seed data
+await app.Services.SeedDataAuthDbContextAsync(app.Configuration);
 
 app.Run();
