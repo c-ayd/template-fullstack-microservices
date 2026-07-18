@@ -351,3 +351,7 @@ terraform.rc
 # Ignore all local history of files
 .history
 .ionide
+
+### Custom ###
+scripts/output/
+src/AuthService/keys/
