@@ -26,7 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettings.Test.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="appsettings.Test.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Keys/test_jwt_private.pem" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Keys/test_jwt_public.pem" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
