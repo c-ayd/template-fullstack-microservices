@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthService.Domain\AuthService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Shared\src\Shared.Crypto\Shared.Crypto.csproj" />
   </ItemGroup>
 
   <ItemGroup>
