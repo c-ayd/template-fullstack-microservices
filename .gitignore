@@ -354,3 +354,4 @@ terraform.rc
 
 ### Custom ###
 scripts/output/
+src/AuthService/keys/
