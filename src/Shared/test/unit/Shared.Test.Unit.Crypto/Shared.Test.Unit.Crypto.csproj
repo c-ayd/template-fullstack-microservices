@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Shared.Crypto\Shared.Crypto.csproj" />
+    <ProjectReference Include="..\..\Shared.Test.Utility\Shared.Test.Utility.csproj" />
   </ItemGroup>
 
 </Project>
