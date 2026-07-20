@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Cayd.Test.Generators" Version="2.1.0" />
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageReference Include="xunit" Version="2.9.3" />
@@ -19,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared.Test.Utility\Shared.Test.Utility.csproj" />
+    <ProjectReference Include="..\..\src\Shared.Crypto\Shared.Crypto.csproj" />
   </ItemGroup>
 
 </Project>
