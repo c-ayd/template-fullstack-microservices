@@ -8,11 +8,11 @@ namespace AuthService.Domain.Entities
     public class Login : EntityBase<Guid>, IUpdateable
     {
         public string RefreshTokenHashed { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public DateTimeOffset ExpirationDate { get; set; }
         public IPAddress? IpAddress { get; set; }
         public string? DeviceInfo { get; set; }
 
-        public DateTime? UpdatedDate { get; set; }
+        public DateTimeOffset? UpdatedDate { get; set; }
 
         // Relationships
         public Guid AccountId { get; set; }
@@ -26,7 +26,7 @@ namespace AuthService.Domain.Entities
         public Login(
             Guid accountId,
             string refreshTokenHashed,
-            DateTime expirationDate,
+            DateTimeOffset expirationDate,
             IPAddress? ipAddress = null,
             string? deviceInfo = null)
             : base(Guid.CreateVersion7())

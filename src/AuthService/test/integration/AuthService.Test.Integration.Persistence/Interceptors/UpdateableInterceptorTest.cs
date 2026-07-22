@@ -24,7 +24,7 @@ namespace AuthService.Test.Integration.Persistence.Interceptors
             // Arrange
             using var authDbContext = _authDbContextFixture.CreateAuthDbContext();
 
-            var now = DateTime.UtcNow;
+            var now = DateTimeOffset.UtcNow;
             var account = new Account(EmailGenerator.Generate(), PasswordGenerator.Generate(6));
             var accountId = account.Id;
 
@@ -44,7 +44,7 @@ namespace AuthService.Test.Integration.Persistence.Interceptors
 
             Assert.NotNull(updatedAccount);
             Assert.NotNull(updatedAccount.UpdatedDate);
-            Assert.True(DateTime.Compare(now, updatedAccount.UpdatedDate.Value) <= 0, $"The {nameof(IUpdateable.UpdatedDate)} property is in the past.");
+            Assert.True(DateTimeOffset.Compare(now, updatedAccount.UpdatedDate.Value) <= 0, $"The {nameof(IUpdateable.UpdatedDate)} property is in the past.");
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace AuthService.Test.Integration.Persistence.Interceptors
             using var authDbContext = _authDbContextFixture.CreateAuthDbContext();
 
             var account = new Account(EmailGenerator.Generate(), PasswordGenerator.Generate(6));
-            var token = new Token(account.Id, ETokenPurpose.EmailVerification, StringGenerator.GenerateUsingAsciiChars(10), DateTime.UtcNow);
+            var token = new Token(account.Id, ETokenPurpose.EmailVerification, StringGenerator.GenerateUsingAsciiChars(10), DateTimeOffset.UtcNow);
 
             account.Tokens.Add(token);
             await authDbContext.Accounts.AddAsync(account);
