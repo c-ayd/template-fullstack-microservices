@@ -39,7 +39,7 @@ namespace AuthService.Persistence.Interceptors
                     continue;
 
                 isDeletedProperty.SetValue(entry.Entity, true);
-                entityType.GetProperty(nameof(ISoftDelete.DeletedDate))!.SetValue(entry.Entity, DateTime.UtcNow);
+                entityType.GetProperty(nameof(ISoftDelete.DeletedDate))!.SetValue(entry.Entity, DateTimeOffset.UtcNow);
 
                 entry.State = EntityState.Modified;
             }

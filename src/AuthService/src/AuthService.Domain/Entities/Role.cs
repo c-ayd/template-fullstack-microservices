@@ -9,7 +9,7 @@ namespace AuthService.Domain.Entities
         public string Name { get; set; }
 
         public bool IsDeleted { get; set; }
-        public DateTime? DeletedDate { get; set; }
+        public DateTimeOffset? DeletedDate { get; set; }
 
         // Relationships
         public ICollection<Account> Accounts { get; set; } = new List<Account>();

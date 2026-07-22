@@ -8,7 +8,7 @@ namespace AuthService.Domain.SeedWork
     public interface ISoftDelete
     {
         bool IsDeleted { get; }
-        DateTime? DeletedDate { get; }
+        DateTimeOffset? DeletedDate { get; }
 
         /// <summary>
         /// Sets necessary properties to their default values to prepare the entity for soft deletion.

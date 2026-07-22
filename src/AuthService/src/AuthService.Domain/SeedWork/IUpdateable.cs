@@ -5,6 +5,6 @@ namespace AuthService.Domain.SeedWork
     /// </summary>
     public interface IUpdateable
     {
-        DateTime? UpdatedDate { get; }
+        DateTimeOffset? UpdatedDate { get; }
     }
 }

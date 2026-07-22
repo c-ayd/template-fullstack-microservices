@@ -35,7 +35,7 @@ namespace AuthService.Persistence.Interceptors
                 if (!entityType.IsAssignableTo(typeof(IUpdateable)))
                     throw new NonUpdateableEntityException(entityType.Name);
 
-                entityType.GetProperty(nameof(IUpdateable.UpdatedDate))!.SetValue(entry.Entity, DateTime.UtcNow);
+                entityType.GetProperty(nameof(IUpdateable.UpdatedDate))!.SetValue(entry.Entity, DateTimeOffset.UtcNow);
             }
         }
     }

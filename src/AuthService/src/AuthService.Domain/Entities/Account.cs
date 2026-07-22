@@ -11,11 +11,11 @@ namespace AuthService.Domain.Entities
 
         public int FailedLoginAttempts { get; set; }
         public bool IsLocked { get; set; }
-        public DateTime? UnlockDate { get; set; }
+        public DateTimeOffset? UnlockDate { get; set; }
 
-        public DateTime? UpdatedDate { get; set; }
+        public DateTimeOffset? UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime? DeletedDate { get; set; }
+        public DateTimeOffset? DeletedDate { get; set; }
 
         // Relationships
         public ICollection<Role> Roles { get; set; } = new List<Role>();

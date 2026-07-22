@@ -10,7 +10,7 @@ namespace AuthService.Domain.SeedWork
         where T : notnull
     {
         public T Id { get; init; }
-        public DateTime CreatedDate { get; init; }
+        public DateTimeOffset CreatedDate { get; init; }
 
         // Reserved for EF Core
         protected EntityBase()
@@ -20,7 +20,7 @@ namespace AuthService.Domain.SeedWork
         public EntityBase(T id)
         {
             Id = id;
-            CreatedDate = DateTime.UtcNow;
+            CreatedDate = DateTimeOffset.UtcNow;
         }
 
         public bool Equals(EntityBase<T>? other)

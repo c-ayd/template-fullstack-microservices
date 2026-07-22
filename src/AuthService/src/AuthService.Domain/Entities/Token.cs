@@ -9,7 +9,7 @@ namespace AuthService.Domain.Entities
     {
         public ETokenPurpose Purpose { get; set; }
         public string ValueHashed { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public DateTimeOffset ExpirationDate { get; set; }
 
         // Relationships
         public Guid AccountId { get; set; }
@@ -24,7 +24,7 @@ namespace AuthService.Domain.Entities
             Guid accountId,
             ETokenPurpose purpose,
             string valueHashed,
-            DateTime expirationDate)
+            DateTimeOffset expirationDate)
             : base(Guid.CreateVersion7())
         {
             AccountId = accountId;

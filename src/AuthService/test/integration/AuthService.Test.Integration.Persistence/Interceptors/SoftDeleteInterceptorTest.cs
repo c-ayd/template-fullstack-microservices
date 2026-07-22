@@ -23,7 +23,7 @@ namespace AuthService.Test.Integration.Persistence.Interceptors
             // Arrange
             using var authDbContext = _authDbContextFixture.CreateAuthDbContext();
 
-            var now = DateTime.UtcNow;
+            var now = DateTimeOffset.UtcNow;
             var account = new Account(EmailGenerator.Generate(), PasswordGenerator.Generate());
             var accountId = account.Id;
 
@@ -43,7 +43,7 @@ namespace AuthService.Test.Integration.Persistence.Interceptors
             Assert.NotNull(softDeletedAccount);
             Assert.True(softDeletedAccount.IsDeleted, $"The {nameof(ISoftDelete.IsDeleted)} property is not true.");
             Assert.NotNull(softDeletedAccount.DeletedDate);
-            Assert.True(DateTime.Compare(now, softDeletedAccount.DeletedDate.Value) <= 0, $"The {nameof(ISoftDelete.DeletedDate)} property is in the past.");
+            Assert.True(DateTimeOffset.Compare(now, softDeletedAccount.DeletedDate.Value) <= 0, $"The {nameof(ISoftDelete.DeletedDate)} property is in the past.");
         }
 
         [Fact]
@@ -53,7 +53,7 @@ namespace AuthService.Test.Integration.Persistence.Interceptors
             using var authDbContext = _authDbContextFixture.CreateAuthDbContext();
 
             var account = new Account(EmailGenerator.Generate(), PasswordGenerator.Generate());
-            var login = new Login(account.Id, StringGenerator.GenerateUsingAsciiChars(10), DateTime.UtcNow);
+            var login = new Login(account.Id, StringGenerator.GenerateUsingAsciiChars(10), DateTimeOffset.UtcNow);
             var loginId = login.Id;
 
             account.Logins.Add(login);

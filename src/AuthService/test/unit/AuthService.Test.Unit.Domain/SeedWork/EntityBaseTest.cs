@@ -20,7 +20,7 @@ namespace AuthService.Test.Unit.Domain.SeedWork
         {
             // Arrange
             Guid defaultGuid = default;
-            DateTime defaultDateTime = default;
+            DateTimeOffset defaultDateTime = default;
 
             // Act
             var entity = new TestEntity();
