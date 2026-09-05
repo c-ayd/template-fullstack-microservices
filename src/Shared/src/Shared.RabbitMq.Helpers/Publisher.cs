@@ -33,6 +33,12 @@ namespace Shared.RabbitMq.Helpers
 
         internal async Task InitializeAsync(IConnection connection, CancellationToken cancellationToken = default)
         {
+            if (Channel != null)
+            {
+                await Channel.CloseAsync();
+                await Channel.DisposeAsync();
+            }
+
             Channel = await connection.CreateChannelAsync(new CreateChannelOptions(
                 publisherConfirmationsEnabled: true,
                 publisherConfirmationTrackingEnabled: false));
